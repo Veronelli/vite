@@ -33,10 +33,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <pre>${JSON.stringify(data.user)}</pre>
   </div>
 `
-document.getElementById('btn').className = buttonStyle.btn 
+document.getElementById('btn')!.className = buttonStyle.btn 
 
-const imagen = document.getElementById('img');
-imagen.src = img;
+const imagen: any = document.getElementById('img') || undefined;
+imagen.src = await img;
 imagen.className = imgStyle.img;
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
