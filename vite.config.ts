@@ -13,14 +13,12 @@ export default defineConfig(({command, mode}) => {
         }
         }
     else{
-        console.log("modo produccion");
         return {
             build: {
-                rollupOptions: {
-                    input: {
-                        main: resolve(__dirname, "index.html"),
-                        help: resolve(__dirname, "help","index .html") 
-                    }
+                lib:{
+                    entry: resolve(__dirname, "lib", "main.ts"),
+                    name: "demo",
+                    fileName: (format)=>`demo.${format}.ts`
                 }
             }
         }
