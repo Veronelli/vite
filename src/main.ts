@@ -7,6 +7,12 @@ import { setupCounter } from './counter.ts';
 import img from './manja-vitolic-gKXKBY-C-Dk-unsplash.jpg';
 import data from "./data.json";
 
+const modules = import.meta.glob('./modules/*.ts')
+for (const path in modules){
+  modules[path]().then(module =>{
+    module.load()
+  });
+}
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
