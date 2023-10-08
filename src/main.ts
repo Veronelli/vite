@@ -10,7 +10,7 @@ import data from "./data.json";
 const modules = import.meta.glob('./modules/*.ts')
 for (const path in modules){
   modules[path]().then(module =>{
-    module.load()
+    module.load();
   });
 }
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
