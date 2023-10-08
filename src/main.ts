@@ -2,7 +2,10 @@ import './style.css';
 import buttonStyle from './button.module.css';
 import typescriptLogo from './typescript.svg';
 import viteLogo from '/vite.svg';
+import imgStyle from './image.module.css';
 import { setupCounter } from './counter.ts';
+import img from './manja-vitolic-gKXKBY-C-Dk-unsplash.jpg';
+import data from "./data.json";
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -20,8 +23,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
     <button id="btn" class="${buttonStyle}">Click!</button>
+    <img id="img"/>
+    <pre>${JSON.stringify(data.user)}</pre>
   </div>
 `
 document.getElementById('btn').className = buttonStyle.btn 
+
+const imagen = document.getElementById('img');
+imagen.src = img;
+imagen.className = imgStyle.img;
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
